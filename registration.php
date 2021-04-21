@@ -22,7 +22,7 @@
             <a id="twitter"><i class="fab fa-twitter"></i></a>
           </div>
           <!-- form to fill and submit the mail and password -->
-          <form class="login-form" action="registration.php" method="post">
+          <form class="login-form" action="registration.php" method="post" onsubmit="return ValidateEmail()">
             <?php include('errors.php'); ?>
             <p>or use your account</p>
             <div class="login-text">
@@ -41,5 +41,22 @@
 
       </div>
     </div>
+    <script type="text/javascript">
+      function ValidateEmail()
+      {
+      var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      if(email.value.match(mailformat))
+      {
+      return true;
+      }
+      else
+      {
+      alert("You have entered an invalid email address!");
+      return false;
+      }
+      }
+
+
+    </script>
   </body>
 </html>

@@ -12,6 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Farro:wght@300;400;500;700&family=Lato:wght@300;400;700;900&family=Open+Sans:wght@300;400;600;700;800&family=Roboto:wght@100;300;500;700;900&display=swap" rel="stylesheet">
   </head>
   <body>
+    <!-- if user not logged in -->
+    <?php
+    if(isset($_SESSION['msg'])){
+      echo '<script>alert("You must log in first to view this page")</script>';
+    }
+     ?>
+
     <div class="container main">
 
       <div class="container inside">
@@ -24,7 +31,7 @@
           </div>
 
           <!-- form to fill and submit the mail and password -->
-          <form class="login-form" action="login.php" method="post">
+          <form class="login-form" action="login.php" method="post" onsubmit="return ValidateEmail()">
 
             <p>or use your account</p>
             <div class="login-text">
@@ -43,5 +50,22 @@
 
       </div>
     </div>
+    <script type="text/javascript">
+      function ValidateEmail()
+      {
+      var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      if(email.value.match(mailformat))
+      {
+      return true;
+      }
+      else
+      {
+      alert("You have entered an invalid email address!");
+      return false;
+      }
+      }
+
+
+    </script>
   </body>
 </html>

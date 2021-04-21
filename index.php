@@ -41,9 +41,10 @@ if(isset($_GET['logout'])){
       if(!isset($_SESSION['email'])){
         $_SESSION['msg'] = "You must log in first to view this page";
         echo $_SESSION['msg'];
-        // header("location: login.php"); //use if sudden redirect needed
+        echo '<script>alert("Welcome to Geeks for Geeks")</script>';
+        header("location: login.php"); //use if sudden redirect needed
         // to delay the redirection to login page
-        header("Refresh:2; url=login.php");
+        // header("Refresh:2; url=login.php");
       }
 
        ?>
